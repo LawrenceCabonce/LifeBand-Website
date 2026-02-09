@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeBand - Account Registration</title>
+    <link rel="stylesheet" href="Account_Regis.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="lifeband-text-logo.png" alt="LifeBand" class="logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="Homepage.html" class="nav-link">Home</a></li>
+            <li><a href="Dev_info.html" class="nav-link">Device information</a></li>
+            <li><a href="About_us.html" class="nav-link">About Us</a></li>
+            <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            <li id="adminPanelLink" style="display:none;"><a href="Admin_Control_Panel.php" class="nav-link">Admin Panel</a></li>
+        </ul>
+        <div class="nav-right">
+            <div id="userProfile" class="user-profile-wrapper" style="display:none;">
+                <img id="profilePic" src="profile_pic.jpg" alt="Profile" class="profile-pic-nav">
+                <span id="userName" class="user-name-text"></span>
+            </div>
+            <button class="signin-btn">Sign in</button>
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Registration Form -->
+    <div class="container">
+        <h1>CREATE NEW ACCOUNT</h1>
+        <div class="login-link">
+            Already registered? <a href="index.html">Login here</a>
+        </div>
+
+        <form id="registrationForm" action="register.php" method="post">
+            <div class="form-group">
+                <label for="name">NAME</label>
+                <input type="text" id="name" name="acc_name" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="acc_email" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="acc_password" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="region">REGION</label>
+                <select id="region" name="acc_region" required>
+                    <option value="">Select</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">DATE OF BIRTH</label>
+                <input type="date" id="dob" name="acc_birthdate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">ROLE</label>
+                <select id="role" name="acc_role" required>
+                    <option value="">Select</option>
+                    <option value="Patient">Patient</option>
+                    <option value="Caregiver/Family Member">Caregiver/Family Member</option>
+                </select>
+            </div>
+
+            <div class="form-group button-group">
+                <button type="submit" class="signup-btn">SIGN UP</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                region: document.getElementById('region').value,
+                role: document.getElementById('role').value
+            };
+
+            // Validate form
+            if (!formData.name || !formData.email || !formData.password || !formData.region || !formData.role) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Validate email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(formData.email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Validate password length
+            if (formData.password.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return;
+            }
+
+            // Submit the form
+            this.submit();
+        });
+
+        // Login link handler
+        document.querySelector('.login-link a').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'index.html';
+        });
+
+        // Login button handler
+        document.querySelector('.login-btn').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeBand - Knowledge Base / FAQ</title>    <link rel="stylesheet" href="navbar.css">    <link rel="stylesheet" href="KnowledgeBase_FAQ.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="lifeband-text-logo.png" alt="LifeBand" class="logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="Homepage.html" class="nav-link">Home</a></li>
+            <li><a href="Dev_info.html" class="nav-link">Device information</a></li>
+            <li><a href="About_us.html" class="nav-link">About Us</a></li>
+            <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            <li id="adminPanelLink" style="display:none;"><a href="Admin_Control_Panel.php" class="nav-link">Admin Panel</a></li>
+        </ul>
+        <div class="nav-right">
+            <div id="userProfile" class="user-profile-wrapper" style="display:none;">
+                <img id="profilePic" src="profile_pic.jpg" alt="Profile" class="profile-pic-nav">
+                <span id="userName" class="user-name-text"></span>
+            </div>
+            <button class="signin-btn">Sign in</button>
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- User Profile -->
+    <div id="userProfileModal" class="profile-modal" style="display:none;">
+        <div class="profile-modal-content">
+            <button class="profile-modal-close">&times;</button>
+            <div class="profile-modal-header">
+                <img id="modalProfilePic" src="profile_pic.jpg" alt="Profile Picture" class="profile-modal-pic">
+            </div>
+            <div class="profile-modal-body">
+                <div class="profile-info-group">
+                    <label>Name</label>
+                    <p id="modalUserName">-</p>
+                </div>
+                <div class="profile-info-group">
+                    <label>Role</label>
+                    <p id="modalUserRole">-</p>
+                </div>
+                <div class="profile-info-group">
+                    <label>Email</label>
+                    <p id="modalUserEmail">-</p>
+                </div>
+                <div class="profile-info-group">
+                    <label>Region</label>
+                    <p id="modalUserRegion">-</p>
+                </div>
+                <div class="profile-info-group">
+                    <label>Date of Birth</label>
+                    <p id="modalUserDOB">-</p>
+                </div>
+            </div>
+            <div class="profile-modal-footer">
+                <button class="edit-profile-btn">Edit Profile</button>
+                <button class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="page-header">
+        <div class="header-content">
+            <img src="messagewhite-removebg-preview.png" alt="Knowledge Base / FAQ" class="header-icon">
+            <h1>Knowledge Base / FAQ</h1>
+        </div>
+        <div class="header-controls">
+            <button class="back-btn">⟲</button>
+            <button class="close-btn">✕</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="faq-container">
+            <div class="search-section">
+                <input type="text" id="searchInput" placeholder="Search" class="search-input">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is LifeBand?
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>LifeBand is a smart wearable device designed to protect individuals living with epilepsy. It provides real-time monitoring, instant emergency alerts, and GPS tracking — helping patients stay safe while living more independently.
+                        Built using accessible technology, LifeBand offers a low-cost alternative to expensive hospital-based seizure monitoring systems.</p>
+                        <p><ul>Key Features</ul></p>
+                            <li><b>Real-Time Seizure Detection</b></li>     
+                                <p>Monitors unusual body movements and abnormal heart rate patterns associated with seizure activity.</p>
+                            <li><b>Emergency Alerts</b></li>
+                                <p>Automatically sends notifications to caregivers through a connected mobile application.</p>
+                            <li><b>GPS Location Tracking</b></li>
+                                <p>Provides real-time location during emergency alerts so help can arrive faster.</p>
+                            <li><b>Heart Rate Monitoring</b></li>
+                                <p>Displays live heart rate readings and tracks irregular changes.</p>
+                            <li><b>Seizure Log & Medical Tracking</b></li>
+                                <p>Records seizure events including:</p>
+                                <ul>
+                                    <li>Date</li>
+                                    <li>Time</li>
+                                    <li>Duration</li>
+                                    <li>Movement intensity</li>
+                                </ul>
+                                <p>This will help caregivers and doctors monitor patterns over time.</p>
+                            <li><b>Medication Reminder</b></li>
+                                <p>Sends scheduled reminders to ensure medications are taken on time.</p>
+                            <li><b>Smart Alert Cancellation</b></li>
+                                <p>Includes a 10-second countdown to prevent false alarms before emergency notifications are sent.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is LifeBand affordable?
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            LifeBand is designed as a low-cost, portable solution using widely available components.
+                            Unlike traditional medical-grade monitoring equipment, which can be expensive and hospital-based, LifeBand focuses on everyday use at home or outdoors.
+                            It promotes Greater independence, Continuous safety support, and Reduced need for constant supervision
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do you use LifeBand?
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p> LifeBand is very simple to use. just follow these 5 steps!
+                        <p><b>1. Wear It</b></p>
+                        <li>Secure the LifeBand on your wrist comfortably.</li>
+                        <p><b>2. Connect to the App</b></p> 
+                        <li>Pair the device with the LifeBand mobile application via Bluetooth </li>
+                        <p><b>3. Stay Protected</b></p>
+                        <li>The device automatically monitors your condition throughout the day.</li>
+                        <p><b>4. Receive Alerts</b></p>
+                        <li>If abnormal patterns are detected, The wearer receives vibration feedback, Caregivers receive instant notifications, and
+                            GPS location is shared for immediate assistance</li>
+                        <p><b>5. Review Health Data</b></p>
+                        <li>The wearer or the caregivers can use the app to view the wearer's <b>heart rate</b>, <b>seizure logs</b>, and monitor the <b>medication schedules</b>.</li>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is LifeBand waterproof?
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, sadly LifeBand is not waterproof. It is recommended to avoid exposing the device to water or moisture as it can damage the device.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long will it take to deliver my LifeBand?
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Delivery typically takes 3-5 business days within the Philippines and 5-7 business days for international orders.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to show/hide admin link based on role
+        function updateAdminLink() {
+            const userRole = localStorage.getItem('userRole');
+            const adminPanelLink = document.getElementById('adminPanelLink');
+            if (adminPanelLink) {
+                if (userRole && userRole.toLowerCase() === 'admin') {
+                    adminPanelLink.style.display = 'block';
+                } else {
+                    adminPanelLink.style.display = 'none';
+                }
+            }
+        }
+
+        // Check if user is logged in from localStorage
+        const userName = localStorage.getItem('userName');
+        if (userName) {
+            document.getElementById('userName').textContent = userName;
+            document.getElementById('userProfile').style.display = 'flex';
+            document.querySelector('.signin-btn').style.display = 'none';
+            updateAdminLink();
+        }
+
+        // Check for URL parameters (fresh login)
+        const urlParams = new URLSearchParams(window.location.search);
+        const user = urlParams.get('user');
+        if (user) {
+            localStorage.setItem('userName', user);
+            localStorage.setItem('userEmail', urlParams.get('email') || '');
+            localStorage.setItem('userRegion', urlParams.get('region') || '');
+            localStorage.setItem('userDOB', urlParams.get('dob') || '');
+            localStorage.setItem('userRole', urlParams.get('role') || '');
+            window.history.replaceState(null, null, window.location.pathname);
+            // Show the profile
+            document.getElementById('userName').textContent = user;
+            document.getElementById('userProfile').style.display = 'flex';
+            document.querySelector('.signin-btn').style.display = 'none';
+            updateAdminLink();
+        }
+
+        // User Profile Modal functionality
+        const userProfileWrapper = document.getElementById('userProfile');
+        const userProfileModal = document.getElementById('userProfileModal');
+        const profileModalClose = document.querySelector('.profile-modal-close');
+        const logoutBtn = document.querySelector('.logout-btn');
+        const editProfileBtn = document.querySelector('.edit-profile-btn');
+
+        if (userProfileWrapper) {
+            userProfileWrapper.addEventListener('click', function() {
+                userProfileModal.style.display = 'flex';
+                // Populate modal with user data
+                document.getElementById('modalUserName').textContent = localStorage.getItem('userName') || '-';
+                document.getElementById('modalUserRole').textContent = localStorage.getItem('userRole') || '-';
+                document.getElementById('modalUserEmail').textContent = localStorage.getItem('userEmail') || '-';
+                document.getElementById('modalUserRegion').textContent = localStorage.getItem('userRegion') || '-';
+                document.getElementById('modalUserDOB').textContent = localStorage.getItem('userDOB') || '-';
+            });
+        }
+
+        profileModalClose.addEventListener('click', function() {
+            userProfileModal.style.display = 'none';
+        });
+
+        userProfileModal.addEventListener('click', function(e) {
+            if (e.target === userProfileModal) {
+                userProfileModal.style.display = 'none';
+            }
+        });
+
+        logoutBtn.addEventListener('click', function() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        });
+
+        editProfileBtn.addEventListener('click', function() {
+            window.location.href = 'Account_Edit.html';
+        });
+
+        // Sign in button
+        document.querySelector('.signin-btn').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+
+        // Back button
+        document.querySelector('.back-btn').addEventListener('click', function() {
+            window.history.back();
+        });
+
+        // Close button
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            window.location.href = 'Homepage.html';
+        });
+
+        // Hamburger menu toggle
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    this.classList.add('active');
+                } else {
+                    this.classList.remove('active');
+                }
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const searchTerm = document.getElementById('searchInput').value;
+            alert(`Searching for: ${searchTerm}`);
+        });
+    </script>
+</body>
+</html>

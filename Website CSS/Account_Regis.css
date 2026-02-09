@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: nowrap;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    height: 35px;
+    width: auto;
+    max-width: 140px;
+}
+
+.logo span {
+    color: #6b4c9a;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 10px 18px;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+}
+
+nav a:hover {
+    color: #6b4c9a;
+    background-color: rgba(107, 76, 154, 0.15);
+}
+
+nav a.active {
+    color: #6b4c9a;
+    background-color: rgba(107, 76, 154, 0.2);
+    font-weight: 600;
+}
+
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+    right: 18px;
+    height: 3px;
+    background-color: #6b4c9a;
+    border-radius: 2px;
+}
+}
+
+nav a:hover {
+    color: #6b4c9a;
+}
+
+.login-btn {
+    background-color: #6b4c9a;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #553d7a;
+}
+
+/* Main Container */
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: transparent;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+h1 {
+    text-align: center;
+    color: #6b4c9a;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.login-link {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #e8e8e8;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+    outline: none;
+    background-color: #ddd;
+    box-shadow: 0 0 5px rgba(107, 76, 154, 0.3);
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    padding-right: 35px;
+}
+
+/* Button Styles */
+.form-group.button-group {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.signup-btn {
+    background-color: #6b4c9a;
+    color: white;
+    padding: 12px 50px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    letter-spacing: 1px;
+}
+
+.signup-btn:hover {
+    background-color: #553d7a;
+}
+
+.signup-btn:active {
+    transform: scale(0.98);
+}

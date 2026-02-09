@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Page-specific content styles below */
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-menu span {
+    width: 28px;
+    height: 3px;
+    background-color: #6b4c9a;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Banner Section */
+.banner {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    background-image: url('MEETING-removebg-preview.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-overlay {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.banner-overlay h1 {
+    font-size: 4em;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px 40px 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+}
+
+.main-content p {
+    font-size: 1.2em;
+}
+
+.main-content ul li {
+    font-size: 1.2em;
+}
+
+.about-container {
+    background: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    line-height: 1.9;
+    font-size: 1.1em;
+    color: #666;
+    text-align: justify;
+}
+
+.about-container p {
+    margin-bottom: 20px;
+    letter-spacing: 0.4px;
+}
+
+.about-container p:last-child {
+    margin-bottom: 0;
+}
+
+.about-container ul {
+    margin: 20px 0 20px 20px;
+    line-height: 1.8;
+}
+
+.about-container li {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+    }
+
+    .nav-left {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .nav-menu {
+        display: none;
+        gap: 0;
+        flex-direction: column;
+        width: 100%;
+        background-color: #f9f9f9;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 0;
+        padding: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(107, 76, 154, 0.15);
+    }
+
+    .nav-link.active {
+        background-color: rgba(107, 76, 154, 0.2);
+        border-left: 4px solid #6b4c9a;
+        padding-left: 16px;
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        order: 3;
+    }
+
+    .nav-right {
+        order: 2;
+    }
+
+    .banner {
+        height: 250px;
+    }
+
+    .banner-overlay h1 {
+        font-size: 2.2em;
+        letter-spacing: 1px;
+    }
+
+    .banner-overlay p {
+        font-size: 1em;
+    }
+
+    .main-content {
+        padding: 40px 20px;
+    }
+
+    .about-container {
+        padding: 30px;
+    }
+
+    .about-container p {
+        font-size: 15px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 15px 15px;
+    }
+
+    .nav-left {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .logo {
+        height: 35px;
+    }
+
+    .nav-right {
+        gap: 10px;
+        order: 3;
+        width: auto;
+    }
+
+    .signin-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .hamburger-menu {
+        order: 2;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(107, 76, 154, 0.15);
+    }
+
+    .nav-link.active {
+        background-color: rgba(107, 76, 154, 0.2);
+        border-left: 4px solid #6b4c9a;
+        padding-left: 16px;
+    }
+
+    .banner {
+        height: 200px;
+    }
+
+    .banner-overlay h1 {
+        font-size: 1.8em;
+    }
+
+    .banner-overlay p {
+        font-size: 0.9em;
+    }
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .about-container {
+        padding: 20px;
+    }
+
+    .about-container p {
+        font-size: 14px;
+    }
+}

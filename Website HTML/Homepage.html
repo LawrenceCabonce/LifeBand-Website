@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeBand - Home</title>
+    <link rel="stylesheet" href="Homepage.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="lifeband-text-logo.png" alt="LifeBand" class="logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="Homepage.html" class="nav-link active">Home</a></li>
+            <li><a href="Dev_info.html" class="nav-link">Device information</a></li>
+            <li><a href="About_us.html" class="nav-link">About Us</a></li>
+            <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            <li id="adminPanelLink" style="display:none;"><a href="Admin_Control_Panel.php" class="nav-link">Admin Panel</a></li>
+        </ul>
+        <div class="nav-right">
+            <div id="userProfile" class="user-profile-wrapper" style="display:none;">
+                <img id="profilePic" src="profile_pic.jpg" alt="Profile" class="profile-pic-nav">
+                <span id="userName" class="user-name-text"></span>
+            </div>
+            <button class="signin-btn">Sign in</button>
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- User Profile -->
+    <div id="userProfileModal" class="profile-modal" style="display:none;">
+        <div class="profile-modal-content">
+            <button class="profile-modal-close">&times;</button>
+            <div class="profile-modal-header">
+                <img id="modalProfilePic" src="profile_pic.jpg" alt="Profile Picture" class="profile-modal-pic">
+            </div>
+            <div class="profile-modal-body">
+                <div class="profile-info-group">
+                    <label>Name</label>
+                    <p id="modalUserName">-</p>
+                </div>
+                <div class="profile-info-group">
+                    <label>Role</label>
+                    <p id="modalUserRole">-</p>
+                </div>
+                <div class="profile-info-group">
+                    <label>Email</label>
+                    <p id="modalUserEmail">-</p>
+                </div>
+                <div class="profile-info-group">
+                    <label>Region</label>
+                    <p id="modalUserRegion">-</p>
+                </div>
+                <div class="profile-info-group">
+                    <label>Date of Birth</label>
+                    <p id="modalUserDOB">-</p>
+                </div>
+            </div>
+            <div class="profile-modal-footer">
+                <button class="edit-profile-btn">Edit Profile</button>
+                <button class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="content-grid">
+            <!-- EDUCATION -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="STETOS-removebg-preview.png" alt="Education & Awareness">
+                </div>
+                <h3>Education & Awareness</h3>
+                <p>Learn and stay safe</p>
+            </div>
+
+            <!-- Privacy & Security -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="SHIELD-removebg-preview.png" alt="Privacy & Security">
+                </div>
+                <h3>Privacy & Security info</h3>
+                <p>Learn about our data privacy</p>
+            </div>
+
+            <!-- Feedback & Evaluation -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="LIKE-removebg-preview.png" alt="Feedback & Evaluation">
+                </div>
+                <h3>Feedback & Evaluation</h3>
+                <p>Share your experience</p>
+            </div>
+
+            <!-- System Status & Updates -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="CHECK-removebg-preview.png" alt="System Status & Updates">
+                </div>
+                <h3>System Status & Updates</h3>
+                <p>Check system availability</p>
+            </div>
+
+            <!-- Knowledge Base / FAQ -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="BUBBLE-removebg-preview.png" alt="Knowledge Base / FAQ">
+                </div>
+                <h3>Knowledge Base / FAQ</h3>
+                <p>Get answers to common questions</p>
+            </div>
+
+            <!-- System Alerts -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="WARNING-removebg-preview.png" alt="System Alerts">
+                </div>
+                <h3>System Alerts</h3>
+                <p>Share your experience</p>
+            </div>
+
+            <!-- Device Compatibility Checker -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="DEVICES-removebg-preview.png" alt="Device Compatibility Checker">
+                </div>
+                <h3>Device Compatibility Checker</h3>
+                <p>Learn and stay safe</p>
+            </div>
+
+            <!-- User Manuals & Tutorials -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="ABOUT-removebg-preview.png" alt="User Manuals & Tutorials">
+                </div>
+                <h3>User Manuals & Tutorials</h3>
+                <p>Learn about our data privacy</p>
+            </div>
+            
+        <!-- Chat Bubble Button -->
+        <button class="chat-button">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="white"/>
+            </svg>
+        </button>
+    </main>
+
+    <script>
+        // Function to show/hide admin link based on role
+        function updateAdminLink() {
+            const userRole = localStorage.getItem('userRole');
+            const adminPanelLink = document.getElementById('adminPanelLink');
+            if (adminPanelLink) {
+                if (userRole && userRole.toLowerCase() === 'admin') {
+                    adminPanelLink.style.display = 'block';
+                } else {
+                    adminPanelLink.style.display = 'none';
+                }
+            }
+        }
+
+        // Check if user is logged in from localStorage
+        const userName = localStorage.getItem('userName');
+        if (userName) {
+            document.getElementById('userName').textContent = userName;
+            document.getElementById('userProfile').style.display = 'flex';
+            document.querySelector('.signin-btn').style.display = 'none';
+            updateAdminLink();
+        }
+
+        // Check for URL parameters (fresh login)
+        const urlParams = new URLSearchParams(window.location.search);
+        const user = urlParams.get('user');
+        if (user) {
+            localStorage.setItem('userName', user);
+            localStorage.setItem('userEmail', urlParams.get('email') || '');
+            localStorage.setItem('userRegion', urlParams.get('region') || '');
+            localStorage.setItem('userDOB', urlParams.get('dob') || '');
+            localStorage.setItem('userRole', urlParams.get('role') || '');
+            window.history.replaceState(null, null, window.location.pathname);
+            // Now show the profile
+            document.getElementById('userName').textContent = user;
+            document.getElementById('userProfile').style.display = 'flex';
+            document.querySelector('.signin-btn').style.display = 'none';
+            updateAdminLink();
+        }
+
+        // Hamburger menu toggle
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Sign in button
+        document.querySelector('.signin-btn').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+
+        // User Profile Modal functionality
+        const userProfileWrapper = document.getElementById('userProfile');
+        const userProfileModal = document.getElementById('userProfileModal');
+        const profileModalClose = document.querySelector('.profile-modal-close');
+        const logoutBtn = document.querySelector('.logout-btn');
+        const editProfileBtn = document.querySelector('.edit-profile-btn');
+
+        if (userProfileWrapper) {
+            userProfileWrapper.addEventListener('click', function() {
+                userProfileModal.style.display = 'flex';
+                // Populate modal with user data
+                document.getElementById('modalUserName').textContent = localStorage.getItem('userName') || '-';
+                document.getElementById('modalUserRole').textContent = localStorage.getItem('userRole') || '-';
+                document.getElementById('modalUserEmail').textContent = localStorage.getItem('userEmail') || '-';
+                document.getElementById('modalUserRegion').textContent = localStorage.getItem('userRegion') || '-';
+                document.getElementById('modalUserDOB').textContent = localStorage.getItem('userDOB') || '-';
+            });
+        }
+
+        profileModalClose.addEventListener('click', function() {
+            userProfileModal.style.display = 'none';
+        });
+
+        userProfileModal.addEventListener('click', function(e) {
+            if (e.target === userProfileModal) {
+                userProfileModal.style.display = 'none';
+            }
+        });
+
+        logoutBtn.addEventListener('click', function() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        });
+
+        editProfileBtn.addEventListener('click', function() {
+            window.location.href = 'Account_Edit.html';
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+
+        // Active link highlighting
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Chat button click
+        document.querySelector('.chat-button').addEventListener('click', function() {
+            window.location.href = 'Chat_supp.html';
+        });
+
+        // Card click handlers
+        document.querySelectorAll('.card').forEach((card, index) => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('h3').textContent;
+                let redirectUrl = '';
+
+                switch(index) {
+                    case 0: // Education & Awareness
+                        redirectUrl = 'Education_Awareness.html';
+                        break;
+                    case 1: // Privacy & Security info
+                        redirectUrl = 'Privacy_Security.html';
+                        break;
+                    case 2: // Feedback & Evaluation
+                        redirectUrl = 'Feedback_Evaluation.html';
+                        break;
+                    case 3: // System Status & Updates
+                        redirectUrl = 'System_Status.php';
+                        break;
+                    case 4: // Knowledge Base / FAQ
+                        redirectUrl = 'KnowledgeBase_FAQ.html';
+                        break;
+                    case 5: // System Alerts
+                        redirectUrl = 'Sys_alerts.php';
+                        break;
+                    case 6: // Device Compatibility Checker
+                        redirectUrl = 'Dev_compata.html';
+                        break;
+                    case 7: // User Manuals & Tutorials
+                        redirectUrl = 'User_manuals.html';
+                        break;
+                }
+
+                if (redirectUrl) {
+                    window.location.href = redirectUrl;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

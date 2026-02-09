@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeBand - Login</title>
+    <link rel="stylesheet" href="Login_p.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="lifeband-text-logo.png" alt="LifeBand Logo" class="logo">
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Dev_info.html">Device information</a></li>
+            <li><a href="About_us.html">About Us</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><button class="signup-btn">Sign up</button></li>
+        </ul>
+    </nav>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <img src="Bg-photo.png" alt="LifeBand Background" class="banner-image">
+        <img src="lifeband-main-logo.png" alt="LifeBand Logo" class="banner-logo">
+    </div>
+
+    <!-- Login Form -->
+    <div class="container">
+        <h1>LOG IN</h1>
+
+        <form id="loginForm" action="login.php" method="post">
+            <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="acc_email" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="acc_password" placeholder="" required>
+            </div>
+
+            <div class="form-options">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember" class="checkbox-label">Remember me</label>
+                </div>
+                <a href="#forgot" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <div class="form-group button-group">
+                <button type="submit" class="login-btn">LOG IN</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                remember: document.getElementById('remember').checked
+            };
+
+            // Validate form
+            if (!formData.email || !formData.password) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Validate email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(formData.email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Submit the form
+            this.submit();
+        });
+
+        // Forgot password link handler
+        document.querySelector('.forgot-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            // window.location.href = 'forgot-password.html'; // Replace with actual forgot password page
+        });
+
+        // Sign up button handler
+        document.querySelector('.signup-btn').addEventListener('click', function() {
+            window.location.href = 'Account_Registration.html';
+        });
+    </script>
+</body>
+</html>

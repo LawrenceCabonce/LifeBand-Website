@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeBand - Edit Account</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="Account_Regis.css">
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .success-message {
+            color: #4CAF50;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .error-message {
+            color: #f44336;
+            padding: 10px;
+            background-color: #ffebee;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .cancel-btn {
+            background-color: #999;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .cancel-btn:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="lifeband-text-logo.png" alt="LifeBand" class="logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="Homepage.html" class="nav-link">Home</a></li>
+            <li><a href="Dev_info.html" class="nav-link">Device information</a></li>
+            <li><a href="About_us.html" class="nav-link">About Us</a></li>
+            <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            <li id="adminPanelLink" style="display:none;"><a href="Admin_Control_Panel.php" class="nav-link">Admin Panel</a></li>
+        </ul>
+        <div class="nav-right">
+            <div id="userProfile" class="user-profile-wrapper" style="display:none;">
+                <img id="profilePic" src="profile_pic.jpg" alt="Profile" class="profile-pic-nav">
+                <span id="userName" class="user-name-text"></span>
+            </div>
+            <button class="signin-btn">Sign in</button>
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Edit Account Form -->
+    <div class="container">
+        <h1>EDIT ACCOUNT DETAILS</h1>
+        
+        <div id="successMessage" class="success-message">Account updated successfully!</div>
+        <div id="errorMessage" class="error-message"></div>
+
+        <form id="editAccountForm" action="account_edit.php" method="post">
+            <div class="form-group">
+                <label for="name">NAME</label>
+                <input type="text" id="name" name="acc_name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="acc_email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="region">REGION</label>
+                <select id="region" name="acc_region" required>
+                    <option value="">Select</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">DATE OF BIRTH</label>
+                <input type="date" id="dob" name="acc_birthdate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="currentPassword">CURRENT PASSWORD (for verification)</label>
+                <input type="password" id="currentPassword" name="current_password" placeholder="Enter current password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="newPassword">NEW PASSWORD (leave blank to keep current)</label>
+                <input type="password" id="newPassword" name="acc_password" placeholder="Enter new password (optional)">
+            </div>
+
+            <div class="form-group button-group">
+                <button type="submit" class="signup-btn">SAVE CHANGES</button>
+                <button type="button" class="cancel-btn" onclick="window.history.back()">CANCEL</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Fetch and populate current user data
+        fetch('get_account_data.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('name').value = data.acc_name || '';
+                    document.getElementById('email').value = data.acc_email || '';
+                    document.getElementById('region').value = data.acc_region || '';
+                    document.getElementById('dob').value = data.acc_birthdate || '';
+                } else {
+                    window.location.href = 'index.html';
+                }
+            })
+            .catch(error => console.error('Error fetching account data:', error));
+
+        // Form submission handler
+        document.getElementById('editAccountForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+
+            // Validate form
+            if (!document.getElementById('name').value || !document.getElementById('email').value || !document.getElementById('region').value || !document.getElementById('currentPassword').value) {
+                showError('Please fill in all required fields');
+                return;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(document.getElementById('email').value)) {
+                showError('Please enter a valid email address');
+                return;
+            }
+
+            fetch('account_edit.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update localStorage
+                    localStorage.setItem('userName', document.getElementById('name').value);
+                    localStorage.setItem('userEmail', document.getElementById('email').value);
+                    localStorage.setItem('userRegion', document.getElementById('region').value);
+                    localStorage.setItem('userDOB', document.getElementById('dob').value);
+                    
+                    document.getElementById('successMessage').style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = 'Homepage.html';
+                    }, 2000);
+                } else {
+                    showError(data.message || 'Failed to update account');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showError('An error occurred. Please try again.');
+            });
+        });
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
